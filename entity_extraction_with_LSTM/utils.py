@@ -64,6 +64,10 @@ def get_data(path="../data/ner_dataset.csv"):
 	return words, tags, sentences
 
 
+def to_categorical(y, num_classes): # 1-hot encodes a tensor
+    return np.eye(num_classes, dtype='uint8')[y]
+
+
 
 if __name__ == '__main__':
 	words,tags,sentences = get_data()

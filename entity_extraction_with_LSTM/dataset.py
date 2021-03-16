@@ -1,6 +1,6 @@
 import torch
 import torchvision
-from utils import get_data,split_data,encode_padding,SentenceGetter
+from utils import get_data,split_data,encode_padding, to_categorical
 from torch.utils.data import Dataset
 from torch.utils.data.dataloader import DataLoader
 import config
@@ -10,8 +10,7 @@ class my_dataset(Dataset):
 
 	def __init__(self,X,y):
 		self.X=X
-		self.y=y
-		
+		self.y=to_categorical(y,config.N_CLASSES)
 
 	def __getitem__(self,idx):
 	
@@ -36,6 +35,5 @@ if __name__ == '__main__':
 	train_dataloader = DataLoader(train_dataset, batch_size=config.BATCH_SIZE)
 	print(len(train_dataloader))
 	item = iter(train_dataloader).next()
-
-	print(item[0].shape)
+	print(item[1].shape)
 
