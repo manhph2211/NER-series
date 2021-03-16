@@ -28,8 +28,8 @@ def train():
 	optimizer = torch.optim.Adam(model.parameters(), lr=config.lr)
 	best_val_loss = 9999
 	for epoch in range(config.N_EPOCHS):
-	    loss_train_epoch = train_fn(model,train_data,optimizer,device)
-	    loss_val_epoch = eval_fn(model,val_data,device)
+	    loss_train_epoch = train_fn(model,train_data,optimizer,criterion,device)
+	    loss_val_epoch = eval_fn(model,val_data,criterion,device)
 	    log_epoch = {"epoch": epoch, "train_loss": loss_train_epoch,"val_loss": loss_val_epoch}
 	    log.append(log_epoch)
 	    df = pd.DataFrame(log)

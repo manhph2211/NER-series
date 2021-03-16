@@ -1,5 +1,5 @@
-
-
+embedding_dim = 512
+N_WORDS = 35179
 N_CLASSES = 17 # len(tags)
 MAX_LEN = 50
 BATCH_SIZE = 2

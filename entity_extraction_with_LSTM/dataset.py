@@ -12,12 +12,14 @@ class my_dataset(Dataset):
 		self.X=X
 		self.y=to_categorical(y,config.N_CLASSES)
 
+
 	def __getitem__(self,idx):
 	
 		X_idx=self.X[idx]
-		X_idx=torch.tensor(X_idx, dtype=torch.float32)
+		# X_idx=[[x] for x in X_idx]
+		X_idx=torch.LongTensor(X_idx)
 		y_idx=self.y[idx]
-		y_idx=torch.IntTensor(y_idx)
+		y_idx=torch.LongTensor(y_idx)
 		return X_idx,y_idx
 
 	def __len__(self):

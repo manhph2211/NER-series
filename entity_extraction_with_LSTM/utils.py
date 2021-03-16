@@ -69,6 +69,7 @@ def to_categorical(y, num_classes): # 1-hot encodes a tensor
 
 
 
+
 if __name__ == '__main__':
 	words,tags,sentences = get_data()
 	X,y = encode_padding(words,tags,sentences)
