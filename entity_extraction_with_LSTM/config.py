@@ -1,0 +1,5 @@
+
+
+MAX_LEN = 50
+BATCH_SIZE = 8 
+EPOCH = 3
